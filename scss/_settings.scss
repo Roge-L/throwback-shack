@@ -60,6 +60,8 @@
 //  55. Top Bar
 //  56. Xy Grid
 
+// Colour Palette: https://coolors.co/2d3142-bfc0c0-ffffff-ef8354-4f5d75
+
 @import 'util/util';
 
 // 1. Global
@@ -69,6 +71,10 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
+  space-cadet: #2D3142,
+  silver: #BFC0C0,
+  mandarin: #EF8354,
+  independence: #4F5D75,
   primary: #1779ba,
   secondary: #767676,
   success: #3adb76,

@@ -4,16 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
+    <title>Throwback Shack</title>
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
     <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h1>Welcome to Foundation</h1>
+      <div class="grid-x align-justify">
+        <div class="large-3 cell">
+          <h5>Throwback Shack</h5>
+        </div>
+        <div class="large-6 cell">
+          <form id="yearSelectionForm">
+            <div class="input-group">
+              <span class="input-group-label" for="year">Choose a year:</span>
+              <select name="year" id="year"></select>
+              <div class="input-group-button">
+                <input type="button" class="button" id="submit" value="submit" onclick="formSubmit()">
+              </div>
+          </div>
+        </form>
         </div>
       </div>
+    </div>
+
+    <div class="grid-container">
 
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
