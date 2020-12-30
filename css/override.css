@@ -1,0 +1,50 @@
+.input-group {
+    margin-top: 1.5rem;
+}
+
+.input-group-label {
+    height: 2.4375rem;
+}
+
+.input-group-button {
+    height: 2.4375rem;
+    margin-left: 1rem;
+}
+
+#albumCover {
+    height: 40px;
+    border-radius: 20%;
+}
+
+#center-media-object-section {
+    display: flex;
+    justify-content: center;
+}
+
+.orbit-image {
+    border-radius: 100%;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.media-object {
+    margin-bottom: 0.5rem;
+}
+
+.ranking {
+    font-family: 'PT Sans', sans-serif;
+}
+
+h2, h3, h4 {
+    font-family: 'Slabo 13px', serif;
+}
+
+h5, h6 {
+    font-family: 'Lato', sans-serif;
+}
+
+.bottom-margin {
+    margin-bottom: 1rem;
+}
