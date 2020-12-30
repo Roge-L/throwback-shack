@@ -6,6 +6,10 @@ initializeDropdown();
 let selObj = document.getElementById("year");
 let selValue = selObj.options[selObj.selectedIndex].value;
 formSubmit();
+let observer = new MutationObserver(() => {
+    loadInfoCard();
+});
+let orbit = document.querySelector(".orbit-container");
 
 /**
  * Make call to Wikipedia API and return Promise with string content
@@ -34,8 +38,13 @@ async function getTop10(year) {
  */
 function updateTop10(formattedDictionary) {
     for (i = 1; i <= 10; i++) {
-        document.getElementById(`song${i}`).innerHTML = formattedDictionary[i][0];
-        document.getElementById(`artist${i}`).innerHTML = formattedDictionary[i][1];
+        let songName = formattedDictionary[i][0];
+        let artistName = formattedDictionary[i][1];
+
+        document.getElementById(`song${i}`).innerHTML = songName;
+        document.getElementById(`orbitSong${i}`).innerHTML = songName;
+        document.getElementById(`artist${i}`).innerHTML = artistName;
+        document.getElementById(`orbitArtist${i}`).innerHTML = artistName;
     }
 }
 
@@ -131,4 +140,38 @@ function changeYear() {
         }
         updateTop10(top10Dict);
     }).catch(err => console.log(err))
+}
+
+/**
+ * Return a formatted string of the currently active song on display
+ */
+function formatInfoCardTitle() {
+    let infoCardTitle = $("li.is-active").text();
+    infoCardTitle = infoCardTitle.trim();
+    infoCardTitle = infoCardTitle.split("\n");
+    infoCardTitle = infoCardTitle[0] + " -" + infoCardTitle[1].substr(19);
+    return infoCardTitle;
+}
+
+/**
+ * Initiate card information and set off observer
+ */
+function loadInfoCard() {
+    let infoCardTitle = formatInfoCardTitle();
+    updateInfoCard(infoCardTitle, "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, debitis porro dolore atque vero velit! Unde fugiat cum quisquam est at impedit blanditiis in saepe, culpa quod vero fuga recusandae.");
+    observer.observe(orbit, {
+        subtree: true,
+        attributes: true, 
+        attributeFilter: ['class']
+    })
+}
+
+/**
+ * Update the information card to currently active song on display
+ * @param {String} title The title of the information card
+ * @param {String} description The description of the information card
+ */
+function updateInfoCard(title, description) {
+    document.getElementById("songNameAndArtist").innerHTML = title;
+    document.getElementById("infoCardDescription").innerHTML = description;
 }
