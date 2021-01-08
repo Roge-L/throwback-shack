@@ -6,10 +6,10 @@ initializeDropdown();
 let selObj = document.getElementById("year");
 let selValue = selObj.options[selObj.selectedIndex].value;
 formSubmit();
-let observer = new MutationObserver(() => {
-    loadInfoCard();
-});
-let orbit = document.querySelector(".orbit-container");
+// let observer = new MutationObserver(() => {
+//     loadInfoCard();
+// });
+// let orbit = document.querySelector(".orbit-container");
 
 /**
  * Make call to Wikipedia API and return Promise with string content
@@ -42,9 +42,9 @@ function updateTop10(formattedDictionary) {
         let artistName = formattedDictionary[i][1];
 
         document.getElementById(`song${i}`).innerHTML = songName;
-        document.getElementById(`orbitSong${i}`).innerHTML = songName;
+        // document.getElementById(`orbitSong${i}`).innerHTML = songName;
         document.getElementById(`artist${i}`).innerHTML = artistName;
-        document.getElementById(`orbitArtist${i}`).innerHTML = artistName;
+        // document.getElementById(`orbitArtist${i}`).innerHTML = artistName;
     }
 }
 
@@ -103,6 +103,10 @@ function formatTop10(top10String) {
             songArtist = songArtist.replace("]]", "");
         } else {
             songArtist = currentString.substring(getPosition(currentString, "[[", 2) + 2, getPosition(currentString, "]]", 2));
+        }
+
+        if (songArtist.includes("|")) {
+            songArtist = songArtist.substring(songArtist.indexOf("|") + 1, songArtist.length);
         }
 
         top10Dict[i] = [songTitle, songArtist];
