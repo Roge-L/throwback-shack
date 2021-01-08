@@ -1,15 +1,11 @@
 $(document).foundation();
 let earliestYear = 1946;
-let currentAvailableYear = new Date().getFullYear() - 1;
+let currentAvailableYear = new Date().getFullYear() - 3;
 let years = "";
 initializeDropdown();
 let selObj = document.getElementById("year");
 let selValue = selObj.options[selObj.selectedIndex].value;
 formSubmit();
-// let observer = new MutationObserver(() => {
-//     loadInfoCard();
-// });
-// let orbit = document.querySelector(".orbit-container");
 
 /**
  * Make call to Wikipedia API and return Promise with string content
@@ -130,6 +126,8 @@ function getPosition(string, subString, index) {
  */
 function formSubmit() {
     document.getElementById("submit").addEventListener("click", changeYear());
+    gsap.from(".border", {duration: 1.5, x: 70, stagger: 0.10});
+    gsap.to(".media-object", {duration: 3, opacity: "100%"});
 }
 
 /**
@@ -144,38 +142,4 @@ function changeYear() {
         }
         updateTop10(top10Dict);
     }).catch(err => console.log(err))
-}
-
-/**
- * Return a formatted string of the currently active song on display
- */
-function formatInfoCardTitle() {
-    let infoCardTitle = $("li.is-active").text();
-    infoCardTitle = infoCardTitle.trim();
-    infoCardTitle = infoCardTitle.split("\n");
-    infoCardTitle = infoCardTitle[0] + " -" + infoCardTitle[1].substr(19);
-    return infoCardTitle;
-}
-
-/**
- * Initiate card information and set off observer
- */
-function loadInfoCard() {
-    let infoCardTitle = formatInfoCardTitle();
-    updateInfoCard(infoCardTitle, "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum, debitis porro dolore atque vero velit! Unde fugiat cum quisquam est at impedit blanditiis in saepe, culpa quod vero fuga recusandae.");
-    observer.observe(orbit, {
-        subtree: true,
-        attributes: true, 
-        attributeFilter: ['class']
-    })
-}
-
-/**
- * Update the information card to currently active song on display
- * @param {String} title The title of the information card
- * @param {String} description The description of the information card
- */
-function updateInfoCard(title, description) {
-    document.getElementById("songNameAndArtist").innerHTML = title;
-    document.getElementById("infoCardDescription").innerHTML = description;
 }

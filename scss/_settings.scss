@@ -153,7 +153,7 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
+    'h1': ('font-size': 26),
     'h2': ('font-size': 20),
     'h3': ('font-size': 19),
     'h4': ('font-size': 18),
@@ -161,7 +161,7 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 44),
+    'h1': ('font-size': 48),
     'h2': ('font-size': 36),
     'h3': ('font-size': 27),
     'h4': ('font-size': 21),
@@ -308,7 +308,7 @@ $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $black;
 $button-color-alt: $black;
 $button-radius: $global-radius;
-$button-border: 1px solid $medium-gray;
+$button-border: 1px solid $black;
 $button-hollow-border-width: 1px;
 $button-sizes: (
   tiny: 0.6rem,
@@ -447,7 +447,7 @@ $helptext-font-size: rem-calc(13);
 $helptext-font-style: italic;
 $input-prefix-color: $black;
 $input-prefix-background: Transparent;
-$input-prefix-border: 1px solid $medium-gray;
+$input-prefix-border: 1px solid $black;
 $input-prefix-padding: 1rem;
 $form-label-color: $black;
 $form-label-font-size: rem-calc(14);
