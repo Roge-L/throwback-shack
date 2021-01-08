@@ -105,6 +105,15 @@ function formatTop10(top10String) {
             songArtist = songArtist.substring(songArtist.indexOf("|") + 1, songArtist.length);
         }
 
+        let queryStringList = songTitle.split(" ");
+        let queryString = queryStringList[0];
+
+        for (j = 1; j < queryStringList.length; j++) {
+            queryString = queryString + "+" + queryStringList[j];
+        }
+
+        $(`#${i}`).attr("href", `https://www.youtube.com/results?search_query=${queryString}`);
+
         top10Dict[i] = [songTitle, songArtist];
     }
 

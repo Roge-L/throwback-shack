@@ -34,6 +34,10 @@ h5, h6 {
     margin-bottom: 1rem;
 }
 
+.border:hover {
+    box-shadow: 1px 1px 10px;
+}
+
 #title {
     text-align: center;
     padding: 2rem 1rem 0 1rem;
@@ -41,4 +45,12 @@ h5, h6 {
 
 #submit:hover {
     background-color: white;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
 }
